@@ -3,6 +3,8 @@ package resource;
 import ca.uhn.fhir.context.FhirContext;
 import ca.uhn.fhir.rest.client.api.IGenericClient;
 import ca.uhn.fhir.rest.client.interceptor.LoggingInterceptor;
+import ca.uhn.fhir.util.StopWatch;
+import config.CustomClientInterceptor;
 import org.hl7.fhir.r4.model.Bundle;
 
 public class FHIRClient {
@@ -13,7 +15,7 @@ public class FHIRClient {
         // Create a FHIR client
         FhirContext fhirContext = FhirContext.forR4();
         IGenericClient client = fhirContext.newRestfulGenericClient(SERVER_BASE);
-        client.registerInterceptor(new LoggingInterceptor(false));
+        client.registerInterceptor(new CustomClientInterceptor());
 
         return client;
     }

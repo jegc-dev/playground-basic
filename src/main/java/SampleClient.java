@@ -28,8 +28,6 @@ public class SampleClient {
             throw new RuntimeException(e);
         }
 
-        //getPatientByFamilySorted("Brees");
-
     }
 
     public static void getPatientByFamilySorted(String family) {
