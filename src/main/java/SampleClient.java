@@ -14,12 +14,21 @@ public class SampleClient {
 
     public static void main(String[] theArgs) {
 
+
         try {
-            getCSVFileStream();
+            List<PatientCsv> patientCsvList = getCSVFileStream();
+
+            for (PatientCsv p : patientCsvList){
+
+                System.out.println("Searching...[" + p.getLastName() + "]");
+                getPatientByFamilySorted(p.getLastName());
+
+            }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        //getPatientByFamilySorted("smith");
+
+        //getPatientByFamilySorted("Brees");
 
     }
 
@@ -34,15 +43,13 @@ public class SampleClient {
         }
     }
 
-    public static void getCSVFileStream() throws IOException {
+    public static List<PatientCsv> getCSVFileStream() throws IOException {
 
         Path path = FileSystems.getDefault().getPath("src","main","resources","patients.csv");
 
-        List<PatientCsv> patientsCsv = Files.lines(path)
+        return Files.lines(path)
                 .map(SampleClient::getPatient)
                 .collect(Collectors.toList());
-
-        System.out.println(patientsCsv);
 
     }
 

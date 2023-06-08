@@ -6,6 +6,7 @@ import org.hl7.fhir.r4.model.Patient;
 import resource.FHIRClient;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class PatientServiceImpl implements PatientService {
@@ -27,7 +28,11 @@ public class PatientServiceImpl implements PatientService {
             dto.setId(patient.getIdentifierFirstRep().getValue());
             dto.setFirstName(patient.getNameFirstRep().getGivenAsSingleString());
             dto.setLastName(patient.getNameFirstRep().getFamily());
-            dto.setDob(patient.getBirthDate().toString());
+
+            if(patient.getBirthDate() != null)
+                dto.setDob(patient.getBirthDate().toString());
+            else
+                dto.setDob("Missing");
 
             patients.add(dto);
         });
