@@ -1,17 +1,17 @@
-package resource;
+package com.resource;
 
 import ca.uhn.fhir.context.FhirContext;
 import ca.uhn.fhir.rest.client.api.IGenericClient;
-import ca.uhn.fhir.rest.client.interceptor.LoggingInterceptor;
-import ca.uhn.fhir.util.StopWatch;
-import config.CustomClientInterceptor;
+import com.config.CustomClientInterceptor;
 import org.hl7.fhir.r4.model.Bundle;
 
 public class FHIRClient {
 
     public static final String SERVER_BASE = "http://hapi.fhir.org/baseR4";
 
+
     public static IGenericClient getClient(){
+
         // Create a FHIR client
         FhirContext fhirContext = FhirContext.forR4();
         IGenericClient client = fhirContext.newRestfulGenericClient(SERVER_BASE);

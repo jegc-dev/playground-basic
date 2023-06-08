@@ -1,12 +1,11 @@
-package service;
+package com.service;
 
-import model.PatientDto;
+import com.model.PatientDto;
 import org.hl7.fhir.r4.model.Bundle;
 import org.hl7.fhir.r4.model.Patient;
-import resource.FHIRClient;
+import com.resource.FHIRClient;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class PatientServiceImpl implements PatientService {

@@ -1,6 +1,6 @@
-package service;
+package com.service;
 
-import model.PatientDto;
+import com.model.PatientDto;
 
 import java.util.List;
 

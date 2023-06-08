@@ -1,18 +1,13 @@
-package model;
+package com.model;
 
-public class PatientDto {
+public class PatientCsv {
 
-    String id;
+
     String firstName;
     String lastName;
-    String dob;
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
+    public PatientCsv(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 
     public String getFirstName() {
@@ -31,21 +26,11 @@ public class PatientDto {
         this.lastName = lastName;
     }
 
-    public String getDob() {
-        return dob;
-    }
-
-    public void setDob(String dob) {
-        this.dob = dob;
-    }
-
     @Override
     public String toString() {
-        return "PatientDto{" +
-                "id='" + id + '\'' +
-                ", firstName='" + firstName + '\'' +
+        return "PatientCsv{" +
+                "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", dob='" + dob + '\'' +
                 '}';
     }
 }
